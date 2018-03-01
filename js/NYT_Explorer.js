@@ -1,5 +1,3 @@
-
-
 class App extends React.Component {
   constructor(props) {
       super(props)
@@ -12,16 +10,12 @@ class App extends React.Component {
 
 
   setData(responseData) {
-      
-      // let articles=responseData.response.docs.slice(0,20)
-      // this.setState({ articles: articles });
-      // console.log(articles[0].web_url)
-
+    
        let articles = [];
           for(var i = 0; i < 1; i++) {
             const article = responseData.response.docs[i];
-            articles.push(article.web_url);
-            console.log(article.web_url)
+            articles.push(article);
+            console.log(article)
           }
           this.setState({articles: articles});
           console.log(articles)
@@ -49,7 +43,7 @@ class App extends React.Component {
       <div id="articles"> 
         {
           this.state.articles.map(
-            (article, index) => <Item key={index} article={article}/>
+            (article, index) => <Item key={index} article={article}  id={index} />
           )
         }</div>
         )
@@ -62,10 +56,27 @@ class Item extends React.Component {
   
   constructor(props){
   super(props)
-  this.state={preview:{}
-  }
+  this.state={preview:{},
+  selectedArticle:{"title":this.props.article.headline.main,
+      "publish date":this.props.article.pub_date,
+      "rubric":this.props.article.section_name,
+      "link":this.props.article.web_url,
+      
 
+  }
+  }
+this.clickArticle=this.clickArticle.bind(this);
 this.done=this.done.bind(this);
+}
+clickArticle(){
+  
+  
+  console.log("hello from clickArticle")
+
+   
+   document.getElementById(this.props.id).style.display = "block";
+    
+
 }
 
 done(results){
@@ -77,7 +88,7 @@ done(results){
    
 
     componentDidMount() {
-    const url='http://api.linkpreview.net/?key=5a901d221b994d82ced4d399f271c1f206b76f8e6a893&q='+this.props.article
+    const url='http://api.linkpreview.net/?key=5a901d221b994d82ced4d399f271c1f206b76f8e6a893&q='+this.props.article.web_url
       $.ajax({
           url: url,
           method: 'GET',
@@ -90,17 +101,17 @@ done(results){
     render() {
         return ( 
           <div>
-              <p>{this.state.articles} </p> 
+               
               <p>{this.state.preview.title}</p>
-              <img src={this.state.preview.image}/>
+              <img width="120" src={this.state.preview.image} onClick={(e) => this.clickArticle(e)}/>
               <p>{this.state.preview.description}</p>
-              <p>{this.state.preview.url}</p> 
+              <div id={this.props.id} style={{display:'none'}} >
+  {'Article Details'+JSON.stringify(this.state.selectedArticle,null,3)}
+</div>
           </div>
         );
     }
 }
-
-
 
 
 
