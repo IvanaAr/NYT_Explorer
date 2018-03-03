@@ -5,50 +5,44 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
     <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
       <link rel="stylesheet" href="css/NYT_Explorer.css" type="text/css">
-
- 
-<style type="text/css"></style>
+      <style type="text/css"></style>
   
   </head>
 
   <body>
-    <header>
-    <h1>New York Times Explorer</h1>
    
-  </header>
+<header>
 
- 
-
-
-
- 
-<div id='forma'>
-
-  <div id=inputmonth">
-    <input type="month" name="monthyear" id="date" min="2000-06" max="2017-02" required>
-    <input type="submit" value="Find" id="btn" onclick="search()">
-</div>
-    <div id="myProgress">
-  <div id="myBar"></div>
-       </div>
-
-</div>
-
-    <div id="root">
-       </div>
+  <h1>New York Times Explorer</h1>
   
-   <script type="text/babel" src="js/NYT_Explorer.js"></script>
-
-   <footer>
-  <p>© 2018 Created by IvanaNutrition</p>
   
+</header>
+<p id="select">Please select month and year</p>
+
+<input type="month" name="monthyear" id="date" min="1851-09" max="2018-02" required>
+
+<input type="submit" value="Find" id="btn" onclick="search()">
+
+<content>
+
+  <div id="root">
+    
+  </div>
+
+</content> 
+
+<footer>
+    <p>© copy NYT 2018 <img id="logo" src="http://petris.org/wp-content/uploads/2016/01/Times-T-logo.jpg" /> Created by IvanaNutrition</p>
 </footer>
+
+<script type="text/babel" src="js/NYT_Explorer.js"></script>
+
   </body>
 </html>
